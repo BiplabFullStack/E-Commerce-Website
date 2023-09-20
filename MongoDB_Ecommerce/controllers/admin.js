@@ -1,4 +1,4 @@
-const product = require('../models/product');
+
 const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
@@ -45,6 +45,7 @@ exports.getEditProduct = (req, res, next) => {
       if (!product) {
         return res.redirect('/');
       }
+
       res.render('admin/edit-product', {
         pageTitle: 'Edit Product',
         path: '/admin/edit-product',

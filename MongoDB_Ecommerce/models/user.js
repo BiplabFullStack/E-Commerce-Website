@@ -20,9 +20,11 @@ const userSchema = new mongoose.Schema({
 
 
 userSchema.methods.addToCart = function(product) {
+  //Find Index
     const cartProductIndex = this.cart.items.findIndex(cp => {
       return cp.productId.toString() === product._id.toString();
     });
+    console.log('-------------->',cartProductIndex);
     let newQuantity = 1;
     const updatedCartItems = [...this.cart.items];
   
@@ -47,6 +49,11 @@ userSchema.methods.addToCart = function(product) {
       return item.productId.toString() !== productId.toString()
     })
     this.cart.items = updatedCardItems;
+    return this.save();
+  }
+
+  userSchema.methods.clearCart = function(){
+    this.cart = {items:[]}
     return this.save();
   }
 

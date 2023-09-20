@@ -37,7 +37,7 @@ mongoose
     "mongodb+srv://Biplab:Biplab1997@cluster27.j3ndx24.mongodb.net/biplab"
   )
   .then(result => {
-    console.log("DB connected");
+    console.log("Database connected");
     app.listen(process.env.PORT || 3000, function () {
       console.log('Express app running on port ' + (process.env.PORT || 3000))
     })
